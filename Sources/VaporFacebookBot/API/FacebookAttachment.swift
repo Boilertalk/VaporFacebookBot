@@ -1,6 +1,6 @@
 //
 //  FacebookAttachment.swift
-//  BoilertalkFacebook
+//  VaporFacebookBot
 //
 //  Created by Koray Koska on 24/05/2017.
 //

@@ -1,26 +1,28 @@
 //
-//  FacebookPostbackReceived.swift
-//  BoilertalkFacebook
+//  FacebookMessageReceived.swift
+//  VaporFacebookBot
 //
-//  Created by Koray Koska on 25/05/2017.
+//  Created by Koray Koska on 24/05/2017.
 //
 //
 
 import Foundation
 import Vapor
 
-public final class FacebookPostbackReceived: JSONConvertible {
+public final class FacebookMessageReceived: JSONConvertible {
+
+    // TODO: Echo messages and stickers???
 
     public var senderId: String
     public var recipientId: String
     public var timestamp: Int
-    public var postback: FacebookPostback
+    public var message: FacebookMessage
 
     public init(json: JSON) throws {
         senderId = try (json.get("sender") as JSON).get("id")
         recipientId = try (json.get("recipient") as JSON).get("id")
         timestamp = try json.get("timestamp")
-        postback = try FacebookPostback(json: json.get("postback"))
+        message = try FacebookMessage(json: json.get("message"))
     }
 
     public func makeJSON() throws -> JSON {
@@ -36,8 +38,8 @@ public final class FacebookPostbackReceived: JSONConvertible {
 
         try json.set("timestamp", timestamp)
 
-        try json.set("postback", postback.makeJSON())
-        
+        try json.set("message", message.makeJSON())
+
         return json
     }
 }

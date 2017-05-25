@@ -1,9 +1,9 @@
 import PackageDescription
 
 let package = Package(
-    name: "BoilertalkFacebook",
+    name: "VaporFacebookBot",
     targets: [
-        Target(name: "BoilertalkFacebook")
+        Target(name: "VaporFacebookBot")
     ],
     dependencies: [
         .Package(url: "https://github.com/vapor/vapor.git", majorVersion: 2)

@@ -1,6 +1,6 @@
-# VaporJsonApi
+# VaporFacebookBot
 
-A server side [jsonapi](http://jsonapi.org/) implementation for [vapor](https://github.com/vapor/vapor) (server side swift).
+This library is an abstraction of the facebook bot api callbacks (webhooks).
 
 ## 📖 Documentation
 

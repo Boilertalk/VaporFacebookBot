@@ -1,6 +1,6 @@
 //
 //  FacebookCallbackEntry.swift
-//  BoilertalkFacebook
+//  VaporFacebookBot
 //
 //  Created by Koray Koska on 24/05/2017.
 //
@@ -36,7 +36,7 @@ public final class FacebookCallbackEntry: JSONConvertible {
         try json.set("id", id)
         try json.set("time", time)
         try json.set("messaging", messaging.jsonArray())
-        
+
         return json
     }
 }
