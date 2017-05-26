@@ -12,7 +12,7 @@ import HTTP
 
 public final class FacebookSendApi {
 
-    static let shared = FacebookSendApi()
+    public static let shared = FacebookSendApi()
 
     public var registeredPayloadTypes: [FacebookSendAttachmentType: FacebookSendAttachmentPayload.Type] = [
         FacebookSendAttachmentImage.attachmentType: FacebookSendAttachmentImage.self,
