@@ -3,6 +3,9 @@
 </a>
 
 <p align="center">
+  <a href="https://gitter.im/VaporFacebookBot/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge">
+    <img src="https://badges.gitter.im/VaporFacebookBot/Lobby.svg" alt="Join the chat at https://gitter.im/VaporFacebookBot/Lobby">
+  </a>
   <a href="https://travis-ci.org/Boilertalk/VaporFacebookBot">
     <img src="https://travis-ci.org/Boilertalk/VaporFacebookBot.svg?branch=master" alt="Build Status">
   </a>
@@ -18,8 +21,6 @@
 </p>
 
 # VaporFacebookBot
-
-[![Join the chat at https://gitter.im/VaporFacebookBot/Lobby](https://badges.gitter.im/VaporFacebookBot/Lobby.svg)](https://gitter.im/VaporFacebookBot/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 This library is an abstraction of the facebook bot api callbacks (webhooks).
 
