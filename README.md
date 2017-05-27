@@ -20,7 +20,7 @@
   </a>
 </p>
 
-# VaporFacebookBot
+# :alembic: VaporFacebookBot
 
 This library provides helpers for [Vapor 2](https://github.com/vapor/vapor) to interact with the [facebook bot api](https://developers.facebook.com/docs/messenger-platform). It simplifies the interaction with [the Send API](https://developers.facebook.com/docs/messenger-platform/send-api-reference) as well as parses incoming [webhooks](https://developers.facebook.com/docs/messenger-platform/webhook-reference) for you.
 
