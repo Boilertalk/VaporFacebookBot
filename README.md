@@ -28,6 +28,15 @@ This library provides helpers for [Vapor 2](https://github.com/vapor/vapor) to i
 
 The following is a list with all features of the facebook Send API and webhooks as of May 2017 together with a note whether it is supported or not. If you find something that's not listed there please open an [issue](https://github.com/Boilertalk/VaporFacebookBot/issues).
 
+### Webhooks
+
+| Feature                        | Supported | Note                                            |
+| ------------------------------ | --------- | ----------------------------------------------- |
+| Parse and validate webhooks    | Yes       |                                                 |
+| Message Received Callback      | Yes       |                                                 |
+| Postback Received Webhook      | Yes       |                                                 |
+| Other webhooks                 | No        | If you need more webhooks open an issue         |
+
 ### Send API
 
 | Feature                        | Supported | Note                                            |
@@ -59,15 +68,6 @@ The following is a list with all features of the facebook Send API and webhooks 
 | Log Out Button                 | No        | In development...                               |
 | Message Tags                   | No        | If you need it open an issue                    |
 | Auto parsing response          | No        | In development...                               |
-
-### Webhooks
-
-| Feature                        | Supported | Note                                            |
-| ------------------------------ | --------- | ----------------------------------------------- |
-| Parse and validate webhooks    | Yes       |                                                 |
-| Message Received Callback      | Yes       |                                                 |
-| Postback Received Webhook      | Yes       |                                                 |
-| Other webhooks                 | No        | If you need more webhooks open an issue         |
 
 ## :package: Installation
 
@@ -106,6 +106,56 @@ let package = Package(
 
 ## :book: Documentation
 
-*Please Note*: This library is in development. An extensive README will be added as soon as the first stable release was published.
+### Webhooks
 
->Note: If you want to help or have inputs during the development phase, please feel free to open an issue and start a discussion.
+First of all import VaporFacebookBot:
+
+```Swift
+import VaporFacebookBot
+```
+
+Then you can parse facebook webhooks in your route:
+
+```Swift
+// builder is your RouteBuilder
+builder.post("facebook") { request in
+
+  // Parse json body onto a callback object
+  if let j = request.json {
+      let callback = try FacebookCallback(json: j)
+      // Loop through all entries and messaging objects as described in the facebook documentation
+      for e in callback.entry {
+          for m in e.messaging {
+              if let mR = m.messageReceived {
+                  // We have a message received callback
+                  if let text = mR.message.text {
+                      // We have a text
+                      print(text)
+                  } else if let att = mR.message.attachments {
+                      // We have some attachments
+                      print(att.debugDescription)
+                  }
+              } else if let pR = m.postbackReceived {
+                  // We have a postback received callback
+                  // Do something with that...
+              }
+          }
+      }
+  }
+
+  // Return 200 OK
+  var json = JSON()
+  try json.set("success", true)
+  return json
+}
+```
+
+You can basically access all non optional and optional values through these objects. For a complete list of available values refer to the [facebook bot documentation](https://developers.facebook.com/docs/messenger-platform/webhook-reference).
+
+### Send API
+
+> TODO: Add documentation for Send API...
+
+## :rocket: Contributing
+
+> TODO: Add information for contributors...
