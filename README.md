@@ -2,6 +2,13 @@
   <img src="https://storage.googleapis.com/boilertalk/logo.svg" width="100%" height="256">
 </a>
 
+<p align="center">
+  [![Build Status](https://travis-ci.org/Boilertalk/VaporFacebookBot.svg?branch=master)](https://travis-ci.org/Boilertalk/VaporFacebookBot)
+  [![license](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](https://github.com/Boilertalk/VaporFacebookBot/blob/master/LICENSE)
+  [![swift](https://img.shields.io/badge/swift-3.1-brightgreen.svg?style=flat)](https://swift.org)
+  [![vapor](https://img.shields.io/badge/vapor-2.0-blue.svg?style=flat)](https://github.com/vapor/vapor)
+</p>
+
 # VaporFacebookBot
 
 This library is an abstraction of the facebook bot api callbacks (webhooks).
