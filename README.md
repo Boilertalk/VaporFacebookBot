@@ -1,5 +1,5 @@
 <a href="https://github.com/Boilertalk/VaporFacebookBot">
-  <img src="https://storage.googleapis.com/boilertalk/logo.svg" width="100%" height="144">
+  <img src="https://storage.googleapis.com/boilertalk/logo.svg" width="100%" height="256">
 </a>
 
 # VaporFacebookBot
