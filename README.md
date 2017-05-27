@@ -3,10 +3,18 @@
 </a>
 
 <p align="center">
-  [![Build Status](https://travis-ci.org/Boilertalk/VaporFacebookBot.svg?branch=master)](https://travis-ci.org/Boilertalk/VaporFacebookBot)
-  [![license](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](https://github.com/Boilertalk/VaporFacebookBot/blob/master/LICENSE)
-  [![swift](https://img.shields.io/badge/swift-3.1-brightgreen.svg?style=flat)](https://swift.org)
-  [![vapor](https://img.shields.io/badge/vapor-2.0-blue.svg?style=flat)](https://github.com/vapor/vapor)
+  <a href="https://travis-ci.org/Boilertalk/VaporFacebookBot">
+    <img src="https://travis-ci.org/Boilertalk/VaporFacebookBot.svg?branch=master" alt="Build Status">
+  </a>
+  <a href="https://github.com/Boilertalk/VaporFacebookBot/blob/master/LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat" alt="license">
+  </a>
+  <a href="https://swift.org">
+    <img src="https://img.shields.io/badge/swift-3.1-brightgreen.svg?style=flat" alt="swift">
+  </a>
+  <a href="https://github.com/vapor/vapor">
+    <img src="https://img.shields.io/badge/vapor-2.0-blue.svg?style=flat" alt="vapor">
+  </a>
 </p>
 
 # VaporFacebookBot
