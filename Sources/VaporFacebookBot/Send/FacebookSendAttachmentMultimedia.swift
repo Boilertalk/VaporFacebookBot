@@ -16,25 +16,39 @@ public class FacebookSendAttachmentMultimedia: FacebookSendAttachmentPayload {
     }
 
     // TODO: Binary image upload?
-    public var url: String
+    public var url: String?
     public var isReusable: Bool?
+
+    public var attachmentId: String?
 
     public init(url: String, isReusable: Bool? = nil) {
         self.url = url
         self.isReusable = isReusable
     }
 
+    public init(attachmentId: String) {
+        self.attachmentId = attachmentId
+    }
+
     public convenience required init(json: JSON) throws {
-        try self.init(url: json.get("url"), isReusable: json["is_reusable"]?.bool)
+        if let url = json["url"]?.string {
+            self.init(url: url, isReusable: json["is_reusable"]?.bool)
+        } else {
+            try self.init(attachmentId: json.get("attachment_id"))
+        }
     }
 
     public func makeJSON() throws -> JSON {
         var json = JSON()
 
-        try json.set("url", url)
+        if let url = url {
+            try json.set("url", url)
 
-        if let isReusable = isReusable {
-            try json.set("is_reusable", isReusable)
+            if let isReusable = isReusable {
+                try json.set("is_reusable", isReusable)
+            }
+        } else if let attachmentId = attachmentId {
+            try json.set("attachment_id", attachmentId)
         }
 
         return json
