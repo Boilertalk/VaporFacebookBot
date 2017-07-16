@@ -19,9 +19,10 @@ public final class FacebookAttachmentPayload: JSONConvertible {
         self.url = url
     }
 
-    public init(coordinatesLat: Double, coordinatesLong: Double) {
+    public init(coordinatesLat: Double, coordinatesLong: Double, url: String? = nil) {
         self.coordinatesLat = coordinatesLat
         self.coordinatesLong = coordinatesLong
+        self.url = url
     }
 
     public convenience init(json: JSON) throws {
@@ -29,10 +30,10 @@ public final class FacebookAttachmentPayload: JSONConvertible {
         let coordinatesLat = json["coordinates"]?["lat"]?.double
         let coordinatesLong = json["coordinates"]?["long"]?.double
 
-        if let url = url, coordinatesLat == nil, coordinatesLong == nil {
+        if let coordinatesLat = coordinatesLat, let coordinatesLong = coordinatesLong {
+            self.init(coordinatesLat: coordinatesLat, coordinatesLong: coordinatesLong, url: url)
+        } else if let url = url {
             self.init(url: url)
-        } else if let coordinatesLat = coordinatesLat, let coordinatesLong = coordinatesLong {
-            self.init(coordinatesLat: coordinatesLat, coordinatesLong: coordinatesLong)
         } else {
             throw Abort(.badRequest, metadata: "FacebookAttachmentPayload must contain either a url or coordinates.lat and coordinates.long")
         }
