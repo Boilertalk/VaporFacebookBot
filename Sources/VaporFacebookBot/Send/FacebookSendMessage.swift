@@ -82,7 +82,7 @@ public final class FacebookSendQuickReply: JSONConvertible {
     }
 
     public init(contentType: FacebookSendQuickReplyContentType, title: String? = nil, payload: String? = nil, imageUrl: String? = nil) {
-        self.contentType = .text
+        self.contentType = contentType
         self.title = title
         self.payload = payload
         self.imageUrl = imageUrl
