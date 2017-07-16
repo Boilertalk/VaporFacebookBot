@@ -29,7 +29,7 @@ public final class FacebookAttachmentPayload: JSONConvertible {
         let coordinatesLat = json["coordinates"]?["lat"]?.double
         let coordinatesLong = json["coordinates"]?["long"]?.double
 
-        if let url = url {
+        if let url = url, coordinatesLat == nil, coordinatesLong == nil {
             self.init(url: url)
         } else if let coordinatesLat = coordinatesLat, let coordinatesLong = coordinatesLong {
             self.init(coordinatesLat: coordinatesLat, coordinatesLong: coordinatesLong)
