@@ -45,19 +45,19 @@ public final class FacebookSendApi {
     private init() {
     }
 
-    public func send(droplet: Droplet, facebookSend: FacebookSend, token: String) throws -> Response {
+    public func send(client: ClientFactoryProtocol = EngineClientFactory(), facebookSend: FacebookSend, token: String) throws -> Response {
         let url = sendMessageUrl(token: token)
 
         let req = Request(method: .post, uri: url, headers: defaultHeaders)
         req.json = try facebookSend.makeJSON()
 
-        return try droplet.client.respond(to: req)
+        return try client.respond(to: req)
     }
 
-    public func sendAsync(droplet: Droplet, facebookSend: FacebookSend, token: String, completion: ((_ response: Response?, _ error: Error?) -> Void)? = nil) {
+    public func sendAsync(client: ClientFactoryProtocol = EngineClientFactory(), facebookSend: FacebookSend, token: String, completion: ((_ response: Response?, _ error: Error?) -> Void)? = nil) {
         background {
             do {
-                let response = try self.send(droplet: droplet, facebookSend: facebookSend, token: token)
+                let response = try self.send(client: client, facebookSend: facebookSend, token: token)
                 completion?(response, nil)
             } catch {
                 completion?(nil, error)
