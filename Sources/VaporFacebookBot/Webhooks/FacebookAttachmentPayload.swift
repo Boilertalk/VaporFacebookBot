@@ -46,7 +46,7 @@ public final class FacebookAttachmentPayload: JSONConvertible {
         } else if let coordinatesLat = coordinatesLat, let coordinatesLong = coordinatesLong {
             var coordinates = JSON()
             try coordinates.set("lat", coordinatesLat)
-            try coordinates.set("lat", coordinatesLong)
+            try coordinates.set("long", coordinatesLong)
 
             try json.set("coordinates", coordinates)
         }
